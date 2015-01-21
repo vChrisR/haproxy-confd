@@ -35,7 +35,7 @@ if [[ -d "$CONFD_OVERRIDE/$TEMPLATES" ]]; then
   ln -s "$CONFD_OVERRIDE/$TEMPLATES" "$TEMPLATES"
 fi
 
-confd -node "$ETCD_LOCATION"
+confd -i 10 -node "$ETCD_LOCATION"
 
 cd "$HAPROXY"
 
@@ -51,6 +51,5 @@ if [[ -f "$HAPROXY_OVERRIDE/$CONFIG" ]]; then
   rm -f "$CONFIG"
   ln -s "$HAPROXY_OVERRIDE/$CONFIG" "$CONFIG"
 fi
-
 
 haproxy -f /etc/haproxy/haproxy.cfg -p "$PIDFILE"
