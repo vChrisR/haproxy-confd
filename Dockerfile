@@ -20,6 +20,8 @@ RUN mkdir -p /etc/confd/templates
 
 # Add files.
 ADD start.bash /haproxy-confd-start
+ADD haproxy.tmpl /etc/confd/templates/haproxy.tmpl
+ADD hoproxy.toml /etc/confd/conf.d/haproxy.tmpl
 
 # Define mountable directories.
 VOLUME ["/haproxy-override"]
