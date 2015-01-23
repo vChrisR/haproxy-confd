@@ -35,7 +35,7 @@ if [[ -d "$CONFD_OVERRIDE/$TEMPLATES" ]]; then
   ln -s "$CONFD_OVERRIDE/$TEMPLATES" "$TEMPLATES"
 fi
 
-confd -i 10 -node "$ETCD_LOCATION"
+confd -interval 10 -node "$ETCD_LOCATION"
 
 cd "$HAPROXY"
 
