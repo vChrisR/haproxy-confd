@@ -22,9 +22,9 @@ defaults
   errorfile 503 /etc/haproxy/errors/503.http
   errorfile 504 /etc/haproxy/errors/504.http
 
-listen stats :80
+listen stats :8080
   stats enable
-  stats uri /stats
+  stats uri /
 
 frontend http-in
     bind *:80
