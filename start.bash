@@ -6,6 +6,8 @@
 
 [ -z "$ETCD_ADDR" ] && { echo "Need to set ETCD_ADDR"; exit 1; }
 
+/bin/sed -i 's/<<SVC_NAME>>/demoapp/g;s/<<SVC_PORT>>/80/g' /etc/confd/templates/haproxy.tmpl
+
 HAPROXY="/etc/haproxy"
 CONFD="/etc/confd"
 HAPROXY_OVERRIDE="/haproxy-override"
