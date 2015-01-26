@@ -31,5 +31,5 @@ frontend http-in
     default_backend http
 
 backend http
-{{range gets "/services/{{.env.SVC_NAME}}-80/*"}}{{ $keystring := split .Key "/" }}      server {{index $keystring 3}} {{.Value}} check
+{{range gets "/services/<<SVC_NAME>>-<<SVC_PORT>/*"}}{{ $keystring := split .Key "/" }}      server {{index $keystring 3}} {{.Value}} check
 {{end}}
