@@ -11,7 +11,7 @@
 FROM dockerfile/haproxy
 
 # Install Confd to bin directory (hopefully it's in the path)
-RUN wget -O confd https://github.com/kelseyhightower/confd/releases/download/v0.6.3/confd-0.6.3-linux-amd64 && \
+RUN wget -O confd https://github.com/kelseyhightower/confd/releases/download/v0.11.0/confd-0.11.0-linux-amd64 && \
   mv confd /usr/local/bin/ && \
   chmod +x /usr/local/bin/confd
 
