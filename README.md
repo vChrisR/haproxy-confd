@@ -7,7 +7,7 @@ You can mount an override directory for haproxy and confd.
 
 You must pass the etcd peer address with the `-e` flag in `docker run` so that it can connect to your etcd cluster.
 
-ex: `docker run -e "ETCD_ADDR=127.0.0.1:4001" treehau5/haproxy-confd`
+ex: `docker run -e "ETCD_ADDR=127.0.0.1:4001" vchrisr/haproxy-confd`
 
 Pass an override directory with the `-v` flag in the `docker run` command.
 
@@ -15,7 +15,7 @@ For examples of this, see [dockerfile/haproxy](http://www.github.com/dockerfile/
 
 ### Usage
 
-    docker run -d -e "ETCD_ADDR=127.0.0.1:4001" -p 80:80 treehau5/haproxy-confd
+    docker run -d -e "ETCD_ADDR=127.0.0.1:4001" -p 80:80 vchrisr/haproxy-confd
 
 #### Customizing Haproxy
 
