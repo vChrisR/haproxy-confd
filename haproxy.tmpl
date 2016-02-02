@@ -30,6 +30,8 @@ frontend http-in
     bind *:80
     default_backend http
 
-backend http
+backend loadGens
+mode http
+http-check expect ! rstring ^Max concurrent jobs reached
 {{range gets "/services/<<SVC_NAME>>-<<SVC_PORT>>/*"}}{{ $keystring := split .Key "/" }}      server {{index $keystring 3}} {{.Value}} check
 {{end}}
