@@ -18,8 +18,6 @@ CONFIG="haproxy.cfg"
 ERRORS="errors"
 CONF_D="conf.d"
 TEMPLATES="templates"
-ETCD_LOCATION="http://$ETCD_ADDR"
-
 
 cd "$CONFD"
 
@@ -37,7 +35,7 @@ if [[ -d "$CONFD_OVERRIDE/$TEMPLATES" ]]; then
   ln -s "$CONFD_OVERRIDE/$TEMPLATES" "$TEMPLATES"
 fi
 
-confd -interval 10 -node "$ETCD_LOCATION"
+confd -onetime -backend etcd -node "$ETCD_ADDR"
 
 cd "$HAPROXY"
 
@@ -53,5 +51,6 @@ if [[ -f "$HAPROXY_OVERRIDE/$CONFIG" ]]; then
   rm -f "$CONFIG"
   ln -s "$HAPROXY_OVERRIDE/$CONFIG" "$CONFIG"
 fi
-
-haproxy -f /usr/local/etc/haproxy/haproxy.cfg -p "$PIDFILE"
+haproxy -f /usr/local/etc/haproxy/haproxy.cfg -D -p "$PIDFILE"
+cd "$CONFD"
+confd -interval 5 -backend etcd -node "$ETCD_ADDR"
