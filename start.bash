@@ -54,4 +54,4 @@ if [[ -f "$HAPROXY_OVERRIDE/$CONFIG" ]]; then
   ln -s "$HAPROXY_OVERRIDE/$CONFIG" "$CONFIG"
 fi
 
-haproxy -f /etc/haproxy/haproxy.cfg -p "$PIDFILE"
+haproxy -f /usr/local/etc/haproxy/haproxy.cfg -p "$PIDFILE"
