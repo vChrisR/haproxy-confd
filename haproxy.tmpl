@@ -22,10 +22,6 @@ defaults
   errorfile 503 /usr/local/etc/haproxy/errors/503.http
   errorfile 504 /usr/local/etc/haproxy/errors/504.http
 
-listen stats :8080
-  stats enable
-  stats uri /
-
 frontend http-in
     bind *:80
     default_backend http
@@ -35,3 +31,9 @@ mode http
 http-check expect ! rstring ^Max concurrent jobs reached
 {{range gets "/services/<<SVC_NAME>>-<<SVC_PORT>>/*"}}{{ $keystring := split .Key "/" }}      server {{index $keystring 3}} {{.Value}} check
 {{end}}
+
+backend private_monitoring
+    stats enable
+    stats uri     /
+    stats refresh 5s
+    bind *:8080
