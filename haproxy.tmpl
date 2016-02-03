@@ -1,9 +1,6 @@
 global
   log 127.0.0.1 local0
   log 127.0.0.1 local1 notice
-  chroot /var/lib/haproxy
-  user haproxy
-  group haproxy
   maxconn 4096
 
 defaults
@@ -31,7 +28,7 @@ frontend http-in
 
 backend loadGens
 mode http
-http-check expect ! rstring ^Max concurrent jobs reached
+http-check expect ! rstring "^Max concurrent jobs reached"
 {{range gets "/services/<<SVC_NAME>>-<<SVC_PORT>>/*"}}{{ $keystring := split .Key "/" }}      server {{index $keystring 3}} {{.Value}} check
 {{end}}
 
