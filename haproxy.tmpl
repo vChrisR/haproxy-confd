@@ -27,7 +27,7 @@ defaults
 
 frontend http-in
     bind *:80
-    default_backend http
+    default_backend loadGens
 
 backend loadGens
 mode http
