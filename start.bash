@@ -8,7 +8,7 @@
 
 /bin/sed -i "s/<<SVC_NAME>>/$SVC_NAME/g;s/<<SVC_PORT>>/$SVC_PORT/g" /etc/confd/templates/haproxy.tmpl
 
-HAPROXY="/etc/haproxy"
+HAPROXY="/usr/local/etc/haproxy"
 CONFD="/etc/confd"
 HAPROXY_OVERRIDE="/haproxy-override"
 CONFD_OVERRIDE="/confd-override"
