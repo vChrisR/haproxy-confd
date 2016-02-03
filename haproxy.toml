@@ -1,9 +1,9 @@
 [template]
 src = "haproxy.tmpl"
-dest = "/etc/haproxy/haproxy.cfg"
+dest = "/usr/local/etc/haproxy/haproxy.cfg"
 #dest = "/tmp/haproxy.cfg"
 keys = [ "/services" ]
 owner = "root"
 mode = "0644"
-check_cmd = "/usr/sbin/haproxy -c -f {{.src}}"
-reload_cmd = "/usr/sbin/service haproxy reload"
+check_cmd = "/usr/local/sbin/haproxy -c -f {{.src}}"
+reload_cmd = "/usr/local/sbin/service haproxy reload"
