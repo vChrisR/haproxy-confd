@@ -2,3 +2,6 @@
 src = "haproxy.tmpl"
 dest = "/usr/local/etc/haproxy/haproxy.cfg"
 keys = [ "/services" ]
+
+check_cmd = "/usr/local/sbin/haproxy -c -f {{.src}}"
+reload_cmd = "/usr/local/sbin/haproxy -f {{.src}} -p $(</var/run/haproxy.pid) -st $(</var/run/haproxy.pid)
