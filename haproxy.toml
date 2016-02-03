@@ -6,4 +6,4 @@ keys = [ "/services" ]
 owner = "root"
 mode = "0644"
 check_cmd = "/usr/local/sbin/haproxy -c -f {{.src}}"
-reload_cmd = "/usr/local/sbin/service haproxy reload"
+reload_cmd = "/sbin/service haproxy reload"
