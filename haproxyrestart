@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/local/sbin/haproxy haproxy -D -f /usr/local/etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -sf $(</var/run/haproxy.pid)
+/usr/local/sbin/haproxy -D -f /usr/local/etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -sf $(</var/run/haproxy.pid)
