@@ -53,4 +53,4 @@ if [[ -f "$HAPROXY_OVERRIDE/$CONFIG" ]]; then
 fi
 haproxy -f /usr/local/etc/haproxy/haproxy.cfg -D -p "$PIDFILE"
 cd "$CONFD"
-confd -interval 5 -backend etcd -node "$ETCD_ADDR"
+confd -interval 5 -backend etcd -node "$ETCD_ADDR" -log-level debug
