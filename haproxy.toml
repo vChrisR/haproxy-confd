@@ -4,4 +4,4 @@ dest = "/usr/local/etc/haproxy/haproxy.cfg"
 keys = [ "/services" ]
 
 check_cmd = "/usr/local/sbin/haproxy -c -f {{.src}}"
-reload_cmd = "/haproxyrestart"
+reload_cmd = "/bin/bash /haproxyrestart"
