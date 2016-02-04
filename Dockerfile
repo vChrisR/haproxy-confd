@@ -14,6 +14,7 @@ FROM haproxy
 ADD https://github.com/kelseyhightower/confd/releases/download/v0.9.0/confd-0.9.0-linux-amd64 /usr/local/bin/confd
 ADD haproxyrestart /haproxyrestart
 RUN chmod +x /usr/local/bin/confd
+RUN chmod +x /haproxyrestart
 RUN mkdir -p /etc/confd/conf.d
 RUN mkdir -p /etc/confd/templates
 
