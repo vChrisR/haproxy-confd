@@ -35,8 +35,6 @@ if [[ -d "$CONFD_OVERRIDE/$TEMPLATES" ]]; then
   ln -s "$CONFD_OVERRIDE/$TEMPLATES" "$TEMPLATES"
 fi
 
-confd -onetime -backend etcd -node "$ETCD_ADDR"
-
 cd "$HAPROXY"
 
 # Symlink errors directory
@@ -51,6 +49,6 @@ if [[ -f "$HAPROXY_OVERRIDE/$CONFIG" ]]; then
   rm -f "$CONFIG"
   ln -s "$HAPROXY_OVERRIDE/$CONFIG" "$CONFIG"
 fi
-haproxy -f /usr/local/etc/haproxy/haproxy.cfg -D -p "$PIDFILE"
+
 cd "$CONFD"
 confd -interval 5 -backend etcd -node "$ETCD_ADDR" -log-level debug
